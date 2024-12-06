@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dark Sun Online: Crimson Sands</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://tarrasqueoftyr.github.io/style.css">
+    <link rel="stylesheet" href="https://tarrasqueoftyr.github.io/color/green.css">
+
+        <link rel="stylesheet" href="https://tarrasqueoftyr.github.io/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://tarrasqueoftyr.github.io/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="Dark Sun Online: Crimson Sands">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tarrasqueoftyr.github.io/faq/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="Dark Sun Online: Crimson Sands">
+    <meta property="twitter:domain" content="tarrasqueoftyr.github.io">
+    <meta property="twitter:url" content="https://tarrasqueoftyr.github.io/faq/">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://tarrasqueoftyr.github.io" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Dark Sun Online: Crimson Sands
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        <nav class="menu">
+            <ul class="menu__inner">
+                <li><a href="https://tarrasqueoftyr.github.io">news</a></li>
+            
+                <li><a href="https://tarrasqueoftyr.github.io/archive">archive</a></li>
+            
+                <li class="active"><a href="https://tarrasqueoftyr.github.io/faq">faq</a></li>
+            
+                <li><a href="https://discord.gg/Y8JPVKhX" target="_blank" rel="noopener noreferrer">discord</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://tarrasqueoftyr.github.io/faq/">FAQ</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date"></span>
+
+    </div>
+
+    
+
+        <div class="post-content">
+            <ul>
+<li>
+<p>"Divide By Zero or Overflow Error" error<br />
+<strong>FIXED</strong> Use updated DSO client package.</p>
+</li>
+<li>
+<p>"Error 42"<br />
+This error occurs when the time in DOSBox differs from the real-world time by more than ±1 minute. Please ensure that the time on your host machine is correct and synchronized with the actual current time to avoid this issue.</p>
+</li>
+<li>
+<p><code>mdark.exe</code> - Main DSO client executable (<code>DSO\resources\drives\c\DSO\mdark.exe</code>)<br />
+Always use <strong>the latest version of mdark.exe</strong>, as it includes important client-side fixes and updates. To get the latest version,  message @<strong>crt0</strong></p>
+</li>
+<li>
+<p><code>sv.cfg</code> - DSO main config file (<code>DSO\resources\drives\c\DSO\sv.cfg</code>)<br />
+The format of the <code>sv.cfg</code> file is as follows:<br />
+The first line must be empty (don't delete it!)<br />
+The second line should contain the server address (use <code>dso-status</code> to get actual address)<br />
+The third line should contain the server port (use <code>dso-status</code> to get actual port)<br />
+The fourth line should contain your <code>login!password</code></p>
+</li>
+</ul>
+<pre style="background-color:#151515;color:#e8e8d3;"><code><span>
+</span><span>localhost
+</span><span>12345
+</span><span>login!pass
+</span></code></pre>
+<ul>
+<li>
+<p>"Is there a specific server we should be pointed at for testing? Or both are equal valid to redirect us where we need to go?" - @<strong>Scoots</strong><br />
+All addresses point to the same DSO server, so just choose the one that is faster for your location.</p>
+</li>
+<li>
+<p>Server adresses and ports
+To get the current server adressess and ports, use command <code>dso-status</code> in <code>#server-status</code> channel.</p>
+</li>
+<li>
+<p>Sound
+To enable sound, press the <code>Space</code> key at the DSO loading screen, and make sure to choose either the <code>wave</code> or <code>mss16</code> sound driver. By default, the volume is muted. To increase the volume, go to in-game settings using the <code>Alt+P</code> shortcut and adjust the level.</p>
+</li>
+<li>
+<p>Animations
+By default, animations are off. To enable animations, press <code>F6</code> in-game, or toggle it in <code>Alt + P</code> in-game settings.</p>
+</li>
+<li>
+<p>Basic hotkeys<br />
+<strong>F1</strong> - Get help on keys in game<br />
+<strong>F2</strong> - List players in region<br />
+<strong>F3</strong> - List all players on the server<br />
+<strong>Shift</strong> - Skip the game intro<br />
+<strong>1..9</strong> - Select answers in scripted dialogues with NPCs or during game events<br />
+<strong>S,C,E</strong> - In the main menu for quick access: <strong>S</strong>tart game, <strong>C</strong>reate character, <strong>E</strong>xit<br />
+<strong>Ctrl + F7</strong> - <strong>(DOSBox)</strong> Start/Stop recording video output to <strong>DSO\capture\</strong></p>
+</li>
+<li>
+<p>Useful links:<br />
+<a href="https://mocagh.org/ssi/darksunonline-manual.pdf">Dark Sun Online: Crimson Sands Manual</a><br />
+<a href="https://gamefaqs.gamespot.com/pc/565241-dark-sun-online-crimson-sands/faqs/2245">Dark Sun Online: Crimson Sands FAQ (PC) by AVrignaud</a></p>
+</li>
+</ul>
+
+        </div>
+
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2024
+ Powered by <a href="https://www.getzola.org/">Zola</a></span>
+                    <span class="copyright-theme">
+                        <span class="copyright-theme-sep">:: </span>
+                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
+                    </span>
+                </div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
