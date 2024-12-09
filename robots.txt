@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://tarrasqueoftyr.github.io/sitemap.xml
