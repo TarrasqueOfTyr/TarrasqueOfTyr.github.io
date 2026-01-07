@@ -1,1 +1,0 @@
-{"darksun":{"desktop/wine":[{"signature-sha-1":"8bc64ec58e9e1ab139aa801af29822d7332f7ad1","version":"6.1,11.4-64:20260107T130140Z"}]},"_SIGNATURE":{"sha-1":"1133e224167a0280ba9402fda362da9699c7532a"}}
