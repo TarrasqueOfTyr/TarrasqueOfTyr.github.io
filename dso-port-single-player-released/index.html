@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dark Sun Online: Crimson Sands</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://tarrasqueoftyr.github.io/style.css">
+    <link rel="stylesheet" href="https://tarrasqueoftyr.github.io/color/green.css">
+
+        <link rel="stylesheet" href="https://tarrasqueoftyr.github.io/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://tarrasqueoftyr.github.io/font-hack-subset.css">
+
+    <meta name="description" content="">
+
+    <meta property="og:description" content="">
+    <meta property="og:title" content="Dark Sun Online: Crimson Sands">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tarrasqueoftyr.github.io/dso-port-single-player-released/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="Dark Sun Online: Crimson Sands">
+    <meta property="twitter:domain" content="tarrasqueoftyr.github.io">
+    <meta property="twitter:url" content="https://tarrasqueoftyr.github.io/dso-port-single-player-released/">
+
+                <link rel="alternate" type="application/rss+xml" title="Dark Sun Online: Crimson Sands RSS Feed" href="https://tarrasqueoftyr.github.io/rss.xml" />
+                <link rel="alternate" type="application/atom+xml" title="Dark Sun Online: Crimson Sands Atom Feed" href="https://tarrasqueoftyr.github.io/atom.xml" />
+        <link rel="shortcut icon" type="image&#x2F;x-icon" href="/favicon.ico">
+    
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://tarrasqueoftyr.github.io" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Dark Sun Online: Crimson Sands
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://tarrasqueoftyr.github.io">news</a></li>
+            
+                <li><a href="https://tarrasqueoftyr.github.io/donate/">donate</a></li>
+            
+                <li><a href="https://tarrasqueoftyr.github.io/archive/">archive</a></li>
+            
+                <li><a href="https://tarrasqueoftyr.github.io/download/">download</a></li>
+            
+                <li><a href="https://tarrasqueoftyr.github.io/faq/">faq</a></li>
+            
+                <li><a href="https://discord.gg/TDyzXXj4Pd" target="_blank" rel="noopener noreferrer">discord</a></li>
+            
+                <li><a href="https://tarrasqueoftyr.github.io/rss.xml">rss</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://tarrasqueoftyr.github.io/dso-port-single-player-released/">Dark Sun Online windows port release with Single-player Offline Mode</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2026-11-11
+        </span>
+
+    </div>
+
+    
+
+        <div class="post-content">
+            <p>Dark Sun Online: Crimson Sands Windows port based on SDL2<br />
+<a href="/download/dso-win-v0.6_offline.zip">dso-win-v0.6_offline</a></p>
+<p>This build (based on v0.6) includes an experimental <strong>Single-player mode for a full offline playthrough</strong> without an internet connection or servers.</p>
+<p>The project is in alpha, so bugs are possible (and there will be some, no doubt).</p>
+<p>ABOUT:</p>
+<p>No AI was used in this project, everything was done with my own brains, hands, and experience.<br />
+That is why an old-as-time HLE approach was used: the loader loads the original game blob into memory (yes, you have to provide the original mdark.exe v2.8 and all the game data files) and patches all platform-dependent calls to a high-level wrapper (modern winapi and SDL2).<br />
+Instead of spending years manually reversing all the thousands of game functions (including the game logic and gamescript vm interpreter), only the low-level system boundaries were located and hooked: clib/stdlib calls and file I/O, win16 dusty apis, dos interrupts, 1Mb segment access, vga segment and ports - all wrapped onto modern winapi and SDL2 abstraction.</p>
+<p>Cons of this approach:</p>
+<ul>
+<li>Such actions (specifically, setting RWX permissions on virtual memory segments, runtime inline hooks and patches, and subsequently executing the original game code loaded into a segment) <strong>trigger almost all antivirus software</strong> - so the port requires disabling your antivirus or adding it to exclusions, otherwise no miracle will happen.</li>
+<li>The port is nailed down tight to the x86-32 architecture (which is not an issue at this stage).</li>
+</ul>
+<p>Pros of this approach:</p>
+<ul>
+<li>For those who care about this - you can be sure that the entire port, including its general architecture, was written the old-fashioned way by a meatbag. No AI slop, though... humans make mistakes too, so bugs are definitely present, as well as possibly suboptimal solutions. Still, everything in this port, from the first line to the last, was written by a human by hand and with full awareness. THUMBS UP if you get an uncanny valley feeling looking at the flood of AI-slop ports! :)</li>
+<li>The HLE code is small and optimized.</li>
+<li>HLE does not interfere with the original logic. All core algorithms are original, no assumptions, guesses, or simulations. Fidelity, so to speak. Including the bugs generously scattered by the original developers. Just like in the good old days :)</li>
+<li>It does not require spending tons of time on routine work like disassembling ALL of the original game code, since it is used directly in its original form.</li>
+</ul>
+<p>HOW TO PLAY:</p>
+<p>The port requires the original files and executable from the last official release of the Dark Sun Online: Crimson Sands client (so-called version "2.8", build tag "2.0:Sep 05 1997:12:07:23").</p>
+<p>Original hashes for vanilla v2.8 Mdark.exe:<br />
+<code>MD5 c933508e291bb3ebfcc276344bdfd6ef</code><br />
+<code>SHA256 d04ef090951cd2d3e51dc750f9eb024cfc57e902a6ad0f8763b89129ddc2bef7</code></p>
+<p>Hashes for this v0.6 port build (dso-win.exe):<br />
+<code>MD5 1fec259273b8c863ae4f0cc67dede59b</code><br />
+<code>SHA256 4922ae953e3ccbfd095287a237c1c839712f535bb464b73c998c2d7a5e86c0ad</code></p>
+<p>Put all the port files (dso-win.exe, SDL2.dll, SDL2_mixer.dll, the "cdaudio" folder) into your DSO v2.8 directory and run dso-win.exe - don't forget to <strong>add the folder to your ANTIVIRUS EXCLUSIONS beforehand or disable your antivirus</strong> while playing.</p>
+<p>The port supports the original game's CD-Audio feature: to use it, place the ogg files named "track02.ogg .. track29.ogg" into the "cdaudio" subfolder.</p>
+<p>DOWNLOAD:
+<a href="/download/dso-win-v0.6_offline.zip">dso-win-v0.6_offline</a></p>
+
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">Thanks for reading! Read other posts?</span>
+                    <hr />
+                </div>
+                <div class="pagination__buttons">
+                        <span class="button previous">
+                            <a href="https://tarrasqueoftyr.github.io/dso-port-single-player/">
+                                <span class="button__icon">←</span>&nbsp;
+                                <span class="button__text">Dark Sun Online + single-player = Dark Sun Offline</span>
+                            </a>
+                        </span>
+                    
+                    </div>
+            </div>
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2026
+ Powered by <a href="https://www.getzola.org/">Zola</a></span>
+                    <span class="copyright-theme">
+                        <span class="copyright-theme-sep">:: </span>
+                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
+                    </span>
+                </div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>

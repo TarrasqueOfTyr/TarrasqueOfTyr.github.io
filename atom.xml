@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Dark Sun Online: Crimson Sands</title>
+    <link rel="self" type="application/atom+xml" href="https://tarrasqueoftyr.github.io/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-11-11T00:00:00+00:00</updated>
+    <id>https://tarrasqueoftyr.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Dark Sun Online windows port release with Single-player Offline Mode</title>
+        <published>2026-11-11T00:00:00+00:00</published>
+        <updated>2026-11-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io/dso-port-single-player-released/"/>
+        <id>https://tarrasqueoftyr.github.io/dso-port-single-player-released/</id>
+        
+        <content type="html" xml:base="https://tarrasqueoftyr.github.io/dso-port-single-player-released/">&lt;p&gt;Dark Sun Online: Crimson Sands Windows port based on SDL2&lt;br &#x2F;&gt;
+&lt;a href=&quot;&#x2F;download&#x2F;dso-win-v0.6_offline.zip&quot;&gt;dso-win-v0.6_offline&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This build (based on v0.6) includes an experimental &lt;strong&gt;Single-player mode for a full offline playthrough&lt;&#x2F;strong&gt; without an internet connection or servers.&lt;&#x2F;p&gt;
+&lt;p&gt;The project is in alpha, so bugs are possible (and there will be some, no doubt).&lt;&#x2F;p&gt;
+&lt;p&gt;ABOUT:&lt;&#x2F;p&gt;
+&lt;p&gt;No AI was used in this project, everything was done with my own brains, hands, and experience.&lt;br &#x2F;&gt;
+That is why an old-as-time HLE approach was used: the loader loads the original game blob into memory (yes, you have to provide the original mdark.exe v2.8 and all the game data files) and patches all platform-dependent calls to a high-level wrapper (modern winapi and SDL2).&lt;br &#x2F;&gt;
+Instead of spending years manually reversing all the thousands of game functions (including the game logic and gamescript vm interpreter), only the low-level system boundaries were located and hooked: clib&#x2F;stdlib calls and file I&#x2F;O, win16 dusty apis, dos interrupts, 1Mb segment access, vga segment and ports - all wrapped onto modern winapi and SDL2 abstraction.&lt;&#x2F;p&gt;
+&lt;p&gt;Cons of this approach:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Such actions (specifically, setting RWX permissions on virtual memory segments, runtime inline hooks and patches, and subsequently executing the original game code loaded into a segment) &lt;strong&gt;trigger almost all antivirus software&lt;&#x2F;strong&gt; - so the port requires disabling your antivirus or adding it to exclusions, otherwise no miracle will happen.&lt;&#x2F;li&gt;
+&lt;li&gt;The port is nailed down tight to the x86-32 architecture (which is not an issue at this stage).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Pros of this approach:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;For those who care about this - you can be sure that the entire port, including its general architecture, was written the old-fashioned way by a meatbag. No AI slop, though... humans make mistakes too, so bugs are definitely present, as well as possibly suboptimal solutions. Still, everything in this port, from the first line to the last, was written by a human by hand and with full awareness. THUMBS UP if you get an uncanny valley feeling looking at the flood of AI-slop ports! :)&lt;&#x2F;li&gt;
+&lt;li&gt;The HLE code is small and optimized.&lt;&#x2F;li&gt;
+&lt;li&gt;HLE does not interfere with the original logic. All core algorithms are original, no assumptions, guesses, or simulations. Fidelity, so to speak. Including the bugs generously scattered by the original developers. Just like in the good old days :)&lt;&#x2F;li&gt;
+&lt;li&gt;It does not require spending tons of time on routine work like disassembling ALL of the original game code, since it is used directly in its original form.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;HOW TO PLAY:&lt;&#x2F;p&gt;
+&lt;p&gt;The port requires the original files and executable from the last official release of the Dark Sun Online: Crimson Sands client (so-called version &quot;2.8&quot;, build tag &quot;2.0:Sep 05 1997:12:07:23&quot;).&lt;&#x2F;p&gt;
+&lt;p&gt;Original hashes for vanilla v2.8 Mdark.exe:&lt;br &#x2F;&gt;
+&lt;code&gt;MD5 c933508e291bb3ebfcc276344bdfd6ef&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+&lt;code&gt;SHA256 d04ef090951cd2d3e51dc750f9eb024cfc57e902a6ad0f8763b89129ddc2bef7&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Hashes for this v0.6 port build (dso-win.exe):&lt;br &#x2F;&gt;
+&lt;code&gt;MD5 1fec259273b8c863ae4f0cc67dede59b&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+&lt;code&gt;SHA256 4922ae953e3ccbfd095287a237c1c839712f535bb464b73c998c2d7a5e86c0ad&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Put all the port files (dso-win.exe, SDL2.dll, SDL2_mixer.dll, the &quot;cdaudio&quot; folder) into your DSO v2.8 directory and run dso-win.exe - don&#x27;t forget to &lt;strong&gt;add the folder to your ANTIVIRUS EXCLUSIONS beforehand or disable your antivirus&lt;&#x2F;strong&gt; while playing.&lt;&#x2F;p&gt;
+&lt;p&gt;The port supports the original game&#x27;s CD-Audio feature: to use it, place the ogg files named &quot;track02.ogg .. track29.ogg&quot; into the &quot;cdaudio&quot; subfolder.&lt;&#x2F;p&gt;
+&lt;p&gt;DOWNLOAD:
+&lt;a href=&quot;&#x2F;download&#x2F;dso-win-v0.6_offline.zip&quot;&gt;dso-win-v0.6_offline&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Dark Sun Online + single-player = Dark Sun Offline</title>
+        <published>2026-11-05T00:00:00+00:00</published>
+        <updated>2026-11-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io/dso-port-single-player/"/>
+        <id>https://tarrasqueoftyr.github.io/dso-port-single-player/</id>
+        
+        <content type="html" xml:base="https://tarrasqueoftyr.github.io/dso-port-single-player/">&lt;p&gt;I have added an experimental feature to my DSO Windows port - an Offline single-player mode!&lt;br &#x2F;&gt;
+Now you can play Dark Sun Online locally, without any internet connection or servers, basically experiencing it as the third installment of the original single-player Dark Sun video game trilogy!&lt;br &#x2F;&gt;
+You can get the latest alpha build upon request on the project&#x27;s &lt;a href=&quot;https:&#x2F;&#x2F;discord.gg&#x2F;TDyzXXj4Pd&quot;&gt;official Discord&lt;&#x2F;a&gt;.&lt;br &#x2F;&gt;
+&lt;div style=&quot;position: relative; width: 75%; margin: 0 auto; padding-top: 56.25%; overflow: hidden; max-width: 100%;&quot;&gt;
+    &lt;iframe
+        src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;dw4Ho7MRCbo&quot;
+        style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;&quot;
+        allowfullscreen
+        loading=&quot;lazy&quot;&gt;
+    &lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>My Dark Sun Online SDL2 native port for Windows</title>
+        <published>2026-10-21T00:00:00+00:00</published>
+        <updated>2026-10-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io/dso-port/"/>
+        <id>https://tarrasqueoftyr.github.io/dso-port/</id>
+        
+        <content type="html" xml:base="https://tarrasqueoftyr.github.io/dso-port/">&lt;p&gt;It is time to share a massive milestone for the project.&lt;br &#x2F;&gt;
+Since the very beginning of the project, I have been working in parallel on porting the original Dark Sun Online client to Windows and Linux. And finally, this side project has reached a fully functional stage - the alpha version of the Windows port using SDL2!&lt;br &#x2F;&gt;
+As a matter of fact, I used old-school methods for this. No AI helpers or trendy vibe-coding were involved in the process, which is exactly why it took so much damn time. But doing it completely by hand was worth every single reversed byte.&lt;br &#x2F;&gt;
+Anyone can get the alpha build for testing upon request on the project&#x27;s &lt;a href=&quot;https:&#x2F;&#x2F;discord.gg&#x2F;TDyzXXj4Pd&quot;&gt;official Discord&lt;&#x2F;a&gt;. Feedback is mandatory :)&lt;br &#x2F;&gt;
+&lt;div style=&quot;position: relative; width: 75%; margin: 0 auto; padding-top: 56.25%; overflow: hidden; max-width: 100%;&quot;&gt;
+    &lt;iframe
+        src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;agbsoGjFyOw&quot;
+        style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;&quot;
+        allowfullscreen
+        loading=&quot;lazy&quot;&gt;
+    &lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Running Dark Sun Online &#x27;baremetal&#x27; on modern PC</title>
+        <published>2024-12-30T00:00:00+00:00</published>
+        <updated>2024-12-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io/dso-baremetal/"/>
+        <id>https://tarrasqueoftyr.github.io/dso-baremetal/</id>
+        
+        <content type="html" xml:base="https://tarrasqueoftyr.github.io/dso-baremetal/">
+  &lt;figure class=&quot;center&quot; &gt;
+    &lt;img src=&quot;&#x2F;images&#x2F;z270.png&quot; decoding=&quot;async&quot; loading=&quot;lazy&quot;&#x2F;&gt;
+    
+  &lt;&#x2F;figure&gt;
+
+&lt;p&gt;Can you run the Dark Sun Online client &lt;em&gt;natively&lt;&#x2F;em&gt; on a modern PC without using emulation or virtualization, just like in the good old days?&lt;br &#x2F;&gt;
+&lt;strong&gt;Yes, you can!&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+Today, I successfully launched the Dark Sun Online client and connected to my server from a PC based on a Coffee Lake processor, Z270 chipset, and using onboard Gigabit PCI-Express network card.&lt;br &#x2F;&gt;
+The root filesystem was set up on a USB flash drive (MBR) with FAT partition containing DOS 6.22 and Windows 3.x!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Dark Sun Online Trailer (by Scoots)</title>
+        <published>2024-12-18T00:00:00+00:00</published>
+        <updated>2024-12-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io/dso-trailer/"/>
+        <id>https://tarrasqueoftyr.github.io/dso-trailer/</id>
+        
+        <content type="html" xml:base="https://tarrasqueoftyr.github.io/dso-trailer/">&lt;p&gt;Our tester Scoots created an epic trailer for the project!&lt;br &#x2F;&gt;
+It&#x27;s fantastic and truly captures the vibe. Check out this masterpiece:&lt;br &#x2F;&gt;
+&lt;div style=&quot;position: relative; width: 75%; margin: 0 auto; padding-top: 56.25%; overflow: hidden; max-width: 100%;&quot;&gt;
+    &lt;iframe
+        src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;qGfah7XKtdI&quot;
+        style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;&quot;
+        allowfullscreen
+        loading=&quot;lazy&quot;&gt;
+    &lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>DSO server: End of alpha test phase 0</title>
+        <published>2024-12-14T00:00:00+00:00</published>
+        <updated>2024-12-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io/phase0-end/"/>
+        <id>https://tarrasqueoftyr.github.io/phase0-end/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;strong&gt;Fellow citizens of Tyr!&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I am pleased to announce that Phase 0 of the alpha testing has successfully fulfilled its purpose and is now coming to an end. A substantial amount of valuable data has been collected, paving the way for further improvements to the project.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>DSO server: Combat system implemented</title>
+        <published>2024-12-08T00:00:00+00:00</published>
+        <updated>2024-12-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io/server-combat/"/>
+        <id>https://tarrasqueoftyr.github.io/server-combat/</id>
+        
+        <content type="html" xml:base="https://tarrasqueoftyr.github.io/server-combat/">&lt;p&gt;The combat system has been successfully implemented for the new server core (Teaquetzl) of the Dark Sun Online server emulator.&lt;br &#x2F;&gt;
+&lt;div style=&quot;position: relative; width: 75%; margin: 0 auto; padding-top: 56.25%; overflow: hidden; max-width: 100%;&quot;&gt;
+    &lt;iframe
+        src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;J6yYTUWKwE8&quot;
+        style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;&quot;
+        allowfullscreen
+        loading=&quot;lazy&quot;&gt;
+    &lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+&lt;p&gt;Soon, the updated core will be pushed to the alpha server, where testers will have the opportunity to try it out. Stay tuned for more updates!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Limited alpha test phase started at dec 2024</title>
+        <published>2024-12-01T00:00:00+00:00</published>
+        <updated>2024-12-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io/alpha-test/"/>
+        <id>https://tarrasqueoftyr.github.io/alpha-test/</id>
+        
+        <content type="html" xml:base="https://tarrasqueoftyr.github.io/alpha-test/">
+  &lt;figure class=&quot;center&quot; &gt;
+    &lt;img src=&quot;&#x2F;images&#x2F;alphatest.png&quot; decoding=&quot;async&quot; loading=&quot;lazy&quot;&#x2F;&gt;
+    
+  &lt;&#x2F;figure&gt;
+
+&lt;p&gt;Hi, everyone! It&#x27;s been almost a year, and I&#x27;m excited to announce that the project has entered the alpha testing phase and is now accepting applications for a limited number of testers. If you&#x27;re interested, please join the project&#x27;s &lt;a href=&quot;https:&#x2F;&#x2F;discord.gg&#x2F;TDyzXXj4Pd&quot;&gt;discord channel&lt;&#x2F;a&gt; and submit your application. Thank you for your interest and support!&lt;&#x2F;p&gt;
+&lt;p&gt;To apply, please fill out the following questionnaire directly in the &lt;a href=&quot;https:&#x2F;&#x2F;discord.gg&#x2F;TDyzXXj4Pd&quot;&gt;discord channel&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;What is your experience with the original Dark Sun Online game?&lt;&#x2F;li&gt;
+&lt;li&gt;What platform will you be using for testing? (e.g., Windows, macOS, Linux)&lt;&#x2F;li&gt;
+&lt;li&gt;Do you understand and accept that this project is in an early development stage and may (and will) contain bugs, incomplete features, and other issues?&lt;&#x2F;li&gt;
+&lt;li&gt;Would you like to contribute feedback during testing?&lt;&#x2F;li&gt;
+&lt;li&gt;Any additional comments or questions?&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Dark Sun: Wake of the Ravager, speed issue and music playlist fix patcher</title>
+        <published>2024-05-12T00:00:00+00:00</published>
+        <updated>2024-05-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://tarrasqueoftyr.github.io/ds2-patch/"/>
+        <id>https://tarrasqueoftyr.github.io/ds2-patch/</id>
+        
+        <summary type="html">&lt;p&gt;
+  &lt;figure class=&quot;center&quot; &gt;
+    &lt;img src=&quot;&#x2F;images&#x2F;dsun2patcher.png&quot; decoding=&quot;async&quot; loading=&quot;lazy&quot;&#x2F;&gt;
+    
+  &lt;&#x2F;figure&gt;
+
+
+I’ve added my Dark Sun 2 patcher to the &lt;a href=&quot;&#x2F;download&quot;&gt;download&lt;&#x2F;a&gt; section.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>
